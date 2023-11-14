@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
-from chess_engine import *
-from minmaxchess import * 
+from engines.chess_engine import *
+from engines.chess_engine2 import * 
 import chess.pgn
 import pandas as pd
 
 app = Flask(__name__)
-previousgames = pd.read_csv("mastergames.csv")
+previousgames = pd.read_csv("games/mastergames.csv")
 
 @app.route('/')
 def index():

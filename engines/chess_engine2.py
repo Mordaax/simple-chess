@@ -2,11 +2,8 @@ import chess
 import random
 import pandas as pd
 import numpy as np
-#df = pd.read_csv("chessgames.csv")
-df2 = pd.read_csv("mastergames.csv")
 
-
-
+df2 = pd.read_csv("games/mastergames.csv")
 class ChessBot:
     def __init__(self, depth, previousgames, previousmoves):
         
