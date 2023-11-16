@@ -2,12 +2,14 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Caruanavirus Chess Game</title>
+        <link rel="icon" href="{{url_for('static', filename='chess-16.png')}}" type="image/x-icon" />
+        <title>Simple Chess Game</title>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
-        <link rel="stylesheet" href="{{ url_for('static', filename='libs/chessboard/css/chessboard-0.3.0.css') }}"></link>
+        <link rel="stylesheet" href="{{ url_for('static', filename='libs/chessboard/css/chessboard-1.0.0.css') }}"></link>
         <link rel="shortcut icon" href="{{ url_for('static', filename='rook_favicon.ico') }}">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -20,34 +22,35 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
+        
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
         <script type="text/javascript"> $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}; </script>
-        <script type="text/javascript" src="{{ url_for('static',filename='libs/chessboard/js/chessboard-0.3.0.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static',filename='libs/chessboard/js/chessboard-0.3.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='libs/chessboard/js/chessboard-1.0.0.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='libs/chessboard/js/chessboard-1.0.0.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static',filename='scripts.js') }}"></script>
 
     </head>
 
     <body class="dark">
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-              <p id="logo" class="text-3xl mt-5">Caruanavirus</p>
-          </div>
-        </nav>
+        
         <div class="container">
+            
             <div class="row">
-                <div class="col-xs-12 col-sm-6">
+               
+                <div class="col-md-6">
                     <div id="mainWindow">
-                        <div id="piecesB"></div>
-                        <div id="board"></div>
-                        <div id="piecesW"></div>
+                        <div id="board" class="center-block"></div>
+                        
                     </div>
+                   
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <div id="secondWindow">
-                        <h3><span id="status" class="text-5xl font-sans mb-3">White to move</span></h3>
+                
+                <div class="col-md-6">
+                    
+                    <div id="secondWindow" class="">
+                        
+                        <h3><span>Status: </span><span id="status" class="text-5xl font-sans mb-3">White to move</span></h3>
                         <div class="mt-5" id="moveTable">
                             <table class="table table-striped table-condensed" id="pgn">
                                 <thead>
@@ -59,55 +62,61 @@
                                 </thead>
                             </table>
                         </div>
-                        <div id="controls">
+                        <div id="controls" class="">
                             
-                            <form class="form-inline">
-                                <div class="grid">
-                                    <div>
-                                        <button type="button" class="btn btn-default" id="backBtn" onclick="takeBack()";>Take Back</button>
-                                        <button type="button" class="btn btn-default" id="reset" onclick="newGame()";>New Game</button>
-                                        <button type="button" class="btn btn-default" id="backBtn" onclick="board.flip()";>Flip Board</button>
-                                    </div>
+                          
+                            <form class="form-horizontal">
+                                    <div class="col-12 text-center ">
+                                        <button type="button" class="btn btn-warning" id="backBtn" onclick="takeBack()";>Take Back</button>
+                                        <button type="button" class="btn btn-danger" id="reset" onclick="newGame()";>New Game</button>
+                                        <button type="button" class="btn btn-primary" id="backBtn" onclick="board.flip()";>Flip Board</button>
                                     
-                                    <div>
-                                        <select class="form-control" id="botagainst">
-                                            <option value="bot1">Against: Bot 1</option>
-                                            <option value="bot2">Against: Bot 2</option>
-                                            <option value="stockfish">Against: Stockfish</option>
-                                           
-                                        </select>
-                                        <select class="form-control" id="sel1">
-                                            <option value="4">Depth: 4</option>
-                                            <option value="3">Depth: 3</option>
-                                            <option value="2">Depth: 2</option>
-                                            <option value="1">Depth: 1</option>
-                                        </select>
-                                        <button type="button" class="btn btn-default" id="big" onclick="startGame()";>Start Game</button>
+                                    </div>
+                                       
+                                    <select id="botagainst" class="form-control">
+                                        <option value="bot1">Against: Bot 1</option>
+                                        <option value="bot2">Against: Bot 2</option>
+                                        
+                                    </select>
+                                    
+                                    <select id="sel1" class="form-control">
+                                        <option value="4">Depth: 4</option>
+                                        <option value="3">Depth: 3</option>
+                                        <option value="2">Depth: 2</option>
+                                        <option value="1">Depth: 1</option>
+                                    </select>
+                                    <br/>
+                                    <select id="botwith" class="form-control">
+                                        <option value="bot1">Helper: Bot 1</option>
+                                        <option value="bot2">Helper: Bot 2</option>
+                                    </select>
+                                    
+                                    <select id="sel2" class="form-control">
+                                        <option value="4">Depth: 4</option>
+                                        <option value="3">Depth: 3</option>
+                                        <option value="2">Depth: 2</option>
+                                        <option value="1">Depth: 1</option>
+                                    </select>
 
+                                    <div class="col-12 text-center ">
+                                    <button type="button" class="btn btn-info" id="backBtn" onclick="getbothelp()";>Get Bot help</button>
+                                    <button type="button" class="btn btn-success" id="big" onclick="startGame()";>Start Game</button>
                                     </div>
-                                    <div>
-                                        <select class="form-control" id="botwith">
-                                            <option value="bot1">Helper: Bot 1</option>
-                                            <option value="bot2">Helper: Bot 2</option>
-                                            <option value="stockfish">Helper: Stockfish</option>
-                                        </select>
-                                        <select class="form-control" id="sel2">
-                                            <option value="4">Depth: 4</option>
-                                            <option value="3">Depth: 3</option>
-                                            <option value="2">Depth: 2</option>
-                                            <option value="1">Depth: 1</option>
-                                        </select>
-                                        <button type="button" class="btn btn-default" id="backBtn" onclick="getbothelp()";>Get Bot help</button>
-                                    </div>
-                                </div>
-                                
-                                
-                            </form>
+                                </form>
+                            
+                          
                         </div>
                     </div>
                 </div>
             </div>
+           
         </div>
+        <div>
+            <p class="bottom"> Copyright &copy 2023
+                <a href="">Cyrus Tan</a> 
+            </p>
+        </div>
+        
     </body>
     
 </html>

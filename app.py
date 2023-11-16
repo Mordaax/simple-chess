@@ -19,7 +19,6 @@ def get_move(depth, fen):
     engine = Engine(fen)
     move = engine.iterative_deepening(depth - 1)
     print("Move found!", move)
-    print()
     return move
 
 @app.route('/move/bot2/<int:depth>/<path:fen>/')

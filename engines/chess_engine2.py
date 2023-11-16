@@ -3,7 +3,7 @@ import random
 import pandas as pd
 import numpy as np
 
-df2 = pd.read_csv("games/mastergames.csv")
+#df2 = pd.read_csv("games/mastergames.csv")
 class ChessBot:
     def __init__(self, depth, previousgames, previousmoves):
         
@@ -202,27 +202,3 @@ class ChessBot:
                 best_move = self.run_opening(board, self.previousmoves)
         return best_move
 
-
-
-'''
-moves=0
-# example usage
-board = chess.Board()
-
-chessbot1 = ChessBot(4)
-chessbot2 = ChessBot(4)
-
-while not board.is_game_over():
-    if board.turn == chess.WHITE:
-        best_move = chessbot1.get_best_move(board)
-        #evaluation, best_move = chessbot1.minimax(board, depth=4, alpha=float('-inf'), beta=float('inf'), maximizing_player=True)
-        #print(type(best_move))
-    else:
-        best_move = chessbot2.get_best_move(board)
-        #evaluation, best_move = chessbot2.minimax(board, depth=3, alpha=float('-inf'), beta=float('inf'), maximizing_player=False)
-    board.push(best_move)
-    print(board)
-    moves+=1
-    print(moves)
-print(board.result())
-'''

@@ -96,7 +96,6 @@ var cfg = {
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd,
-
 };
 
 var randomResponse = function() {
