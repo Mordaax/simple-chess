@@ -31,13 +31,9 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Solomonbot</h3>
+  <h3 align="center">Chess-ng</h3>
 
   <p align="center">
-    Chess algorithm with UI
-    <br />
-    <br />
-    <br />
     <a href="https://coral-app-dul2q.ondigitalocean.app/">View Demo</a>
     ·
     <a href="https://github.com/Mordaax/solomonbot/issues">Report Bug</a>
@@ -73,27 +69,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A chess bot built using the minimax algorithm and chessboardjs library
+A chess bot built using the minimax algorithm and chessboard.js library. This bot does not see checkmates further than 4 moves which makes it terrible at endgames 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* ![Python]
-* ![Javascript]
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
@@ -105,7 +87,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    python -m venv venv
    /venv/scripts/activate
-   
    ```
 3. Install requirements
    ```sh
@@ -115,11 +96,20 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    flask run
    ```
+5. Start playing as white by dragging the white peices to your desired square. Alternatively, click on "Flip Board" and "Start Game" to play as black.
+
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+### Built With
+
+* ![Python]
+* ![Javascript]
 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
@@ -127,6 +117,12 @@ To get a local copy up and running follow these simple example steps.
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+[python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+
+[Javascript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+
 
 
 [python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
