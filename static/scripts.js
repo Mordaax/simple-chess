@@ -117,8 +117,7 @@ var getResponseMove = function() {
     $.get($SCRIPT_ROOT + "/move/" + depth + "/" + fen+"/", function(data) {
         game.move(data, {sloppy: true});
         updateStatus();
-        // This is terrible and I should feel bad. Find some way to fix this properly.
-        // The animations would stutter when moves were returned too quick, so I added a 100ms delay before the animation
+
         setTimeout(function(){ board.position(game.fen()); }, 100);
         resolve()
     })
@@ -135,8 +134,7 @@ var getResponseMoveBot2 = function() {
         
         game.move(data, {sloppy: true});
         updateStatus();
-        // This is terrible and I should feel bad. Find some way to fix this properly.
-        // The animations would stutter when moves were returned too quick, so I added a 100ms delay before the animation
+
         setTimeout(function(){ board.position(game.fen()); }, 100);
         resolve()
     })

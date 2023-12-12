@@ -3,6 +3,7 @@ from engines.chess_engine import *
 from engines.chess_engine2 import * 
 import chess.pgn
 import pandas as pd
+import urllib.parse
 
 app = Flask(__name__)
 previousgames = pd.read_csv("games/mastergames.csv")
@@ -16,6 +17,7 @@ def index():
 def get_move(depth, fen):
     print(depth)
     print("Calculating...")
+    fen = urllib.parse.unquote(fen)
     engine = Engine(fen)
     move = engine.iterative_deepening(depth - 1)
     print("Move found!", move)
@@ -27,6 +29,7 @@ def get_bot2_move(depth, fen):
     previousmoves = request.args.get('pm')
     previousmoves = previousmoves.split(',')
     board = chess.Board()
+    fen = urllib.parse.unquote(fen)
     board.set_fen(fen)
 
     chessbot2 = ChessBot(depth,previousgames, previousmoves)
