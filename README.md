@@ -37,7 +37,7 @@ A chess bot built using the minimax algorithm and chessboard.js library. This bo
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Mordaax/solomonbot/
+   git clone https://github.com/Mordaax/simple-chess/
    ```
 2. Create virtual environment
    ```sh
