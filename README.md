@@ -42,11 +42,11 @@ A chess bot built using the minimax algorithm and chessboard.js library. This bo
 2. Create virtual environment
    ```sh
    python -m venv venv
-   /venv/scripts/activate
+   /venv/bin/activate
    ```
 3. Install requirements
    ```sh
-   python install -r requirements.txt
+   pip install -r requirements.txt
    ```
 4. Run app
    ```sh
